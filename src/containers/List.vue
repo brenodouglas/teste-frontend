@@ -1,9 +1,10 @@
 <template>
   <div class="list">
-    <h2>Issues</h2>
+    <h2>Issues <router-link to="/create">Nova</router-link></h2>
     <ul>
       <li v-for="issue in issues" :key="issue.id">
-        {{ issue.id }} -- {{ issue.title }} -- {{ issue.body }}
+        {{ issue.id }} -- {{ issue.title }} -- {{ issue.body }} --
+        <router-link :to="{ name: 'Edit', params: {id: issue.number }}">Edit</router-link>
       </li>
     </ul>
   </div>

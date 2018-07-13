@@ -12,21 +12,25 @@ const actions = {
     const response = await Api().get('issues')
     commit('setIssues', response.data)
   },
-  async getIssue ({ commit }, number){
-    const response = await Api().get('issue/'+number)
+  async getIssue ({ commit }, number) {
+    const response = await Api().get(`issues/${number}`)
     commit('setIssue', response.data)
   },
+  async createIssue ({ commit }, issue) {
+    commit('clearIssue')
+    await Api().post(`issues`, issue)
+  },
   async editIssue ({ commit }, { number, title, body }) {
-    const response = await Api().patch('issue/'+number, { title, body })
-    commit('editIssue', response.data)
+    commit('clearIssue')
+    await Api().patch(`issues/${number}`, { title, body })
   },
-  async lockIssue ({ commit }, { id, number }) {
-    await Api().put('issue/'+number+'/lock')
-    commit('lockIssue', {id, number})
+  async lockIssue ({ commit }, issue) {
+    await Api().put(`issues/${issue.number}/lock`)
+    commit('updateIssue', { ...issue, locked: true })
   },
-  async unlockIssue ({ commit }, { id, number }) {
-    await Api().delete('issue/'+number+'/lock')
-    commit('unlockIssue', {id, number})
+  async unlockIssue ({ commit }, issue) {
+    await Api().delete(`issues/${issue.number}/lock`)
+    commit('updateIssue', { ...issue, locked: false })
   }
 }
 
@@ -37,17 +41,15 @@ const mutations = {
   setIssue (state, issue) {
     state.issue = issue
   },
+  clearIssue (state) {
+    state.issue = {}
+    state.issues = []
+  },
   addIssue (state, newIssue) {
     state.issues.push(newIssue)
   },
-  editIssue (state, {id, body, title}) {
-
-  },
-  lockIssue (state, { id, number }) {
-
-  },
-  unlockIssue (state, { id, number }) {
-
+  updateIssue (state, issue) {
+    state.issue = issue
   }
 }
 
