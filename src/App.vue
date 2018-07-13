@@ -1,6 +1,16 @@
 <template>
   <div id="app">
-    <router-view/>
+    <nav class="navbar navbar-dark bg-dark justify-content-center">
+      <span class="navbar-text text-center">
+        GITHUB ISSUES (/bdouglaans/teste-repository)
+      </span>
+    </nav>
+    <br><br>
+    <div class="container">
+      <div class="row justify-content-center">
+        <router-view/>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -10,13 +20,6 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import '../node_modules/bootstrap/scss/bootstrap.scss'
 </style>
