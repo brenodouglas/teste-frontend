@@ -6,7 +6,7 @@ export default() => {
     withCredentials: false,
     auth: {
       'username': `bdouglasans`,
-      'password': `44f97994bbf405b2f6b51144373c088ab293f804`
+      'password': `_`
     },
     headers: {
       'Accept': 'application/json',

@@ -1,27 +1,34 @@
-# teste-front
-
+# Teste frontend
 > Projeto p/ trabalhar com issues do github
 
-## Build Setup
+## Recomendação
+* Após clonar o projeto é necessário gerar um token para utilizar a aplicação e adiciona-lo no arquivo 'src/api/github.js' no campo password no lugar do `_`
+
+* Para gerar o token pode seguir os caminhos no github: Settings > Configurações > Developer Settings > Personal access tokens > Generate new token
+
+* Não é necess marcar nenhuma das opções e somente gerar o token, altere também o link do repositório em 'baseURL' ainda no mesmo arquivo github.js
+
+## Como iniciar o projeto
+> Clone ou baixe o projeto e dentro da pasta raíz do projeto use os seguintes comandos:
 
 ``` bash
-# install dependencies
+# instalar dependencias
 npm install
+#ou recomendação usar o yarn
+yarn
 
-# serve with hot reload at localhost:8080
+# servidor com hot reload em localhost:8080
 npm run dev
 
-# build for production with minification
+# build para produção com minificação
 npm run build
 
-# build for production and view the bundle analyzer report
+# build para produção e ver o relatório do bundle analyzer
 npm run build --report
 
-# run unit tests
+# rodar teste unitários
 npm run unit
 
-# run all tests
+# run todos os testes
 npm test
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
