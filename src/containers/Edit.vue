@@ -1,24 +1,29 @@
 <template>
-    <div>
-      <h1>
+    <div class="col-6">
+      <h5 class="card-title">
         Editar
-        --
-        <router-link to="/">Voltar</router-link>
-      </h1>
+      </h5>
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="title">Titulo</label>
+            <input type="text" class="form-control" v-model="title" id="title" />
+          </div>
 
-      <p>
-        <input type="text" v-model="title" />
-      </p>
-      <p>
-        <textarea v-model="body" cols="30" rows="10"></textarea>
-      </p>
-      <p>
-          <button @click="lock" v-if="!issue.locked" >Lock</button>
-          <button @click="unLock" v-if="issue.locked">Unlock</button>
-      </p>
-      <p>
-        <button @click="save()" >Salvar</button>
-      </p>
+          <div class="form-group">
+            <label for="body">Descrição</label>
+            <textarea class="form-control" v-model="body" cols="30" rows="5" id="body"></textarea>
+          </div>
+
+          <div class="form-control text-center">
+            <button @click="lock" class="btn btn-danger btn-sm" v-if="!issue.locked" >Lock</button>
+            <button @click="unLock" class="btn btn-success btn-sm" v-if="issue.locked">Unlock</button>
+          </div>
+
+          <button @click="save()" class="btn btn-success btn-sm float-right mt-2 ml-2">Salvar</button>
+          <router-link tag="a" class="float-right btn btn-light mt-2 btn-sm" to="/"> Cancelar </router-link>
+        </div>
+      </div>
     </div>
 </template>
 
